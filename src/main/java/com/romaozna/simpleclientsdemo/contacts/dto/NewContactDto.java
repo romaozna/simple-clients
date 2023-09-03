@@ -1,12 +1,13 @@
 package com.romaozna.simpleclientsdemo.contacts.dto;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Value;
 
 @Value
-public class NewEmailContact {
+public class NewContactDto {
     @NotBlank
-    @Email
-    String email;
+    String contact;
+
+    @NotBlank
+    String contactType;
 }

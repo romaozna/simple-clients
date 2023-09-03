@@ -1,5 +1,7 @@
 package com.romaozna.simpleclientsdemo.contacts.model;
 
+import com.romaozna.simpleclientsdemo.exception.BadRequestException;
+
 public enum ContactType {
     EMAIL,
     PHONE;
@@ -10,6 +12,6 @@ public enum ContactType {
                 return value;
             }
         }
-        return null;
+        throw new BadRequestException("Unknown contact type");
     }
 }

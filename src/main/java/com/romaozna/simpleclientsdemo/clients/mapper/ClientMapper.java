@@ -1,5 +1,8 @@
-package com.romaozna.simpleclientsdemo.clients.dto;
+package com.romaozna.simpleclientsdemo.clients.mapper;
 
+import com.romaozna.simpleclientsdemo.clients.dto.ClientDto;
+import com.romaozna.simpleclientsdemo.clients.dto.FullClientDto;
+import com.romaozna.simpleclientsdemo.clients.dto.NewClientDto;
 import com.romaozna.simpleclientsdemo.clients.model.Client;
 import com.romaozna.simpleclientsdemo.contacts.model.Contact;
 import org.springframework.stereotype.Component;

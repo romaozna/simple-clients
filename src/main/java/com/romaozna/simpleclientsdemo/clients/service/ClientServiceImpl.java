@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static com.romaozna.simpleclientsdemo.clients.dto.ClientMapper.*;
+import static com.romaozna.simpleclientsdemo.clients.mapper.ClientMapper.*;
 
 @Service
 @Transactional(readOnly = true)

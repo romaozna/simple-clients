@@ -5,7 +5,8 @@ import lombok.Value;
 
 @Value
 public class ContactDto {
+    Long id;
     String contact;
-    ContactType type;
+    ContactType contactType;
 
 }
