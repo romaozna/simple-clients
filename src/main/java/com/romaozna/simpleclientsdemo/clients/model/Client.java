@@ -1,7 +1,6 @@
 package com.romaozna.simpleclientsdemo.clients.model;
 
-import com.romaozna.simpleclientsdemo.contacts.model.Email;
-import com.romaozna.simpleclientsdemo.contacts.model.Phone;
+import com.romaozna.simpleclientsdemo.contacts.model.Contact;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,14 +18,11 @@ public class Client {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "NAME", nullable = false, unique = true)
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID")
-    private Set<Email> emails;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID")
-    private Set<Phone> phones;
+    private Set<Contact> contacts;
 }

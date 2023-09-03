@@ -4,17 +4,21 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "EMAILS")
+@Table(name = "CONTACTS")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Email {
+public class Contact {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "EMAIL")
-    private String email;
+
+    @Column(name = "CONTACT")
+    private String contact;
+
+    @Column(name = "TYPE")
+    private ContactType contactType;
 }
