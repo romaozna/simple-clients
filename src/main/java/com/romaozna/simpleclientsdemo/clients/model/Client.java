@@ -4,7 +4,7 @@ import com.romaozna.simpleclientsdemo.contacts.model.Contact;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "CLIENTS")
@@ -23,6 +23,6 @@ public class Client {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID")
-    private Set<Contact> contacts;
+    @JoinColumn(name = "CLIENT_ID")
+    private List<Contact> contacts;
 }

@@ -4,12 +4,12 @@ import com.romaozna.simpleclientsdemo.clients.dto.ClientDto;
 import com.romaozna.simpleclientsdemo.clients.dto.FullClientDto;
 import com.romaozna.simpleclientsdemo.clients.dto.NewClientDto;
 import com.romaozna.simpleclientsdemo.clients.model.Client;
+import com.romaozna.simpleclientsdemo.contacts.mapper.ContactMapper;
 import com.romaozna.simpleclientsdemo.contacts.model.Contact;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
@@ -17,11 +17,11 @@ public class ClientMapper {
     public static Client toClient(NewClientDto clientDto) {
         Client client = new Client();
         client.setName(clientDto.getName());
-        client.setContacts(new HashSet<>());
+        client.setContacts(new ArrayList<>());
         return client;
     }
 
-    public static Client toClient(ClientDto clientDto, Set<Contact> contacts) {
+    public static Client toClient(ClientDto clientDto, List<Contact> contacts) {
         return new Client(
                 clientDto.getId(),
                 clientDto.getName(),
@@ -41,7 +41,7 @@ public class ClientMapper {
         return new FullClientDto(
                 client.getId(),
                 client.getName(),
-                client.getContacts()
+                ContactMapper.toContactDto(client.getContacts())
         );
     }
 

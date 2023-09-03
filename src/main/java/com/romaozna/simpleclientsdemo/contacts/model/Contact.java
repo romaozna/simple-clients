@@ -12,13 +12,16 @@ import lombok.*;
 @AllArgsConstructor
 public class Contact {
     @Id
-    @Column(name = "ID")
+    @Column(name = "CONTACT_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long contactId;
 
     @Column(name = "CONTACT")
     private String contact;
 
     @Column(name = "TYPE")
     private ContactType contactType;
+
+    @Column(name = "CLIENT_ID")
+    private Long clientId;
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientsRepository extends JpaRepository<Client, Long> {
-    @Query(" select c from Client c join Contact ct on ct.id = c.id " +
-            "where c.id = ?1 ")
+    @Query(value = " SELECT * FROM CLIENTS AS CL JOIN CONTACTS C on C.CLIENT_ID = CL.ID\n" +
+            "WHERE CL.ID = ?1 ", nativeQuery = true)
     Client getClientWithContacts(Long id);
 }

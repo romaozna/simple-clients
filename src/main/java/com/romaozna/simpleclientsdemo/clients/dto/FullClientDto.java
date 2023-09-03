@@ -1,13 +1,13 @@
 package com.romaozna.simpleclientsdemo.clients.dto;
 
-import com.romaozna.simpleclientsdemo.contacts.model.Contact;
+import com.romaozna.simpleclientsdemo.contacts.dto.ContactDto;
 import lombok.Value;
 
-import java.util.Set;
+import java.util.List;
 
 @Value
 public class FullClientDto {
     Long id;
     String name;
-    Set<Contact> contacts;
+    List<ContactDto> contacts;
 }

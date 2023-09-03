@@ -4,7 +4,6 @@ import com.romaozna.simpleclientsdemo.contacts.dto.ContactDto;
 import com.romaozna.simpleclientsdemo.contacts.dto.NewContactDto;
 import com.romaozna.simpleclientsdemo.contacts.model.Contact;
 import com.romaozna.simpleclientsdemo.contacts.model.ContactType;
-import com.romaozna.simpleclientsdemo.exception.BadRequestException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,13 +14,14 @@ public class ContactMapper {
     public static Contact toContact(NewContactDto newContactDto) {
         Contact contact = new Contact();
         contact.setContact(newContactDto.getContact());
-        contact.setContactType(ContactType.from(newContactDto.getContactType()));
+        contact.setContactType(ContactType.from(newContactDto.getType()));
+        contact.setClientId(newContactDto.getClientId());
         return contact;
     }
 
     public static ContactDto toContactDto(Contact contact) {
         return new ContactDto(
-                contact.getId(),
+                contact.getContactId(),
                 contact.getContact(),
                 contact.getContactType());
     }

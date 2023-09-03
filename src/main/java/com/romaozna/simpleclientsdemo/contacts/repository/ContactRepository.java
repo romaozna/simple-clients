@@ -10,11 +10,11 @@ import java.util.List;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Long> {
-    @Query(" select ct from Contact ct join Client c on c.id = ct.id " +
+    @Query(" select ct from Contact ct join Client c on c.id = ct.clientId " +
             "where c.id = ?1 ")
     List<Contact> getAllClientsContacts(Long clientId);
 
-    @Query(" select ct from Contact ct join Client c on c.id = ct.id " +
+    @Query(" select ct from Contact ct join Client c on c.id = ct.clientId " +
             "where c.id = ?1 and ct.contactType = ?2 ")
     List<Contact> getAllClientsContactsByType(Long clientId, ContactType contactType);
 }
